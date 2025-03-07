@@ -4,305 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Center</title>
-
-    <!-- Import Tailwind CSS -->
+    <title>Secure Login</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Import Font Defago Noto Sans -->
+    
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    
     <style>
-        /* ກຳນົດ Font ໃຫ້ທັງເວັບ */
         body {
             font-family: 'Noto Sans Lao', sans-serif;
+            background-color: #f3f4f6;
         }
-
-        /* ປັບສະໄຕລ໌ Header */
-        .header {
-            background-color: #031a4bbb;
-            color: white;
-            padding: 16px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Logo ຂະໜາດ */
-        .logo {
-            height: 40px;
-            margin-right: 10px;
+        .hidden-source {
+            display: none;
         }
     </style>
-    <style>
-        .update-label {
-            background-color: red;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: bold;
-            padding: 3px 6px;
-            border-radius: 5px;
-            margin-left: 5px;
-            display: inline-block;
-        }
-    </style>
- <script>
-    document.addEventListener("contextmenu", event => event.preventDefault());
-    document.addEventListener("keydown", function(event) {
-        if (event.ctrlKey && (event.key === "u" || event.key === "s" || event.key === "i")) {
-            event.preventDefault();
-        }
-    });
-</script>
-<script>
-    document.addEventListener("contextmenu", event => event.preventDefault());
-    document.addEventListener("keydown", function(event) {
-        if (event.ctrlKey && (event.key === "u" || event.key === "s" || event.key === "i")) {
-            event.preventDefault();
-        }
-    });
-</script>
+    
+    <script>
+        // Disable right-click & View Source
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey && (e.key === "U" || e.key === "u")) {
+                e.preventDefault();
+            }
+        });
 
+        function validateLogin(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
 
+            if (username === "admin" && password === "bol@2024") {
+                alert("Login Successful!");
+                window.location.href = "index1.html"; // Redirect to dashboard
+            } else {
+                alert("Invalid Username or Password");
+            }
+        }
+    </script>
 </head>
 
-
-<body class="bg-gray-100 text-gray-900">
-
-    <!-- Header -->
-    <header class="header">
-        <img src="https://www.bol.gov.la/img/LOGO_BANK_V2.png" alt="Logo" class="logo">
-        <!-- ປ່ຽນ logo.png ເປັນລິ້ງ Logo ຂອງທ່ານ -->
-        <h1 class="text-3xl font-bold">App Center</h1>
-    </header>
-
-    <!-- Search Bar -->
-    <div class="flex justify-center my-6">
-        <select id="categorySelect" class="px-4 py-2 rounded-lg shadow-md border">
-            <option value="all">ທັງໝົດ</option>
-            <option value="firewall">Firewall</option>
-            <option value="cyber-tools">ເຄື່ອງມື Cyber</option>
-            <option value="pentest">ເຄື່ອງມື Pentest</option>
-            <option value="monitor">ລະບົບ Monitor</option>
-            <option value="cloud">Private Cloud BOL</option>
-            <option value="docker">ລະບົບ Docker</option>
-        </select>
-        <button onclick="searchCategory()"
-            class="ml-3 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700">
-            ຄົ້ນຫາ
-        </button>
+<body class="flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+        <div class="text-center mb-6">
+            <img src="https://www.bol.gov.la/img/LOGO_BANK_V2.png" alt="Logo" class="h-16 mx-auto">
+            <h2 class="text-2xl font-bold text-gray-800">Login</h2>
+        </div>
+        <form onsubmit="validateLogin(event)">
+            <div class="mb-4">
+                <label class="block text-gray-700">ຊື່ຜູ້ໃຊ້</label>
+                <input type="text" id="username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">ລະຫັດຜ່ານ</label>
+                <input type="password" id="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">ເຂົ້າສູ່ລະບົບ</button>
+        </form>
     </div>
-
-    <!-- Group Sections -->
-    <div class="max-w-6xl mx-auto space-y-10">
-
-        <!-- Firewall Group -->
-        <div class="group firewall">
-            <h2 class="text-2xl font-semibold text-gray-700">Firewall</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-                <a href="https://10.0.253.105" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-ethernet"></i>
-                    <p>FW-NET ZONE <span class="update-label">HQ</span></p>
-                </a>
-                <a href="https://10.0.253.103" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-ethernet"></i>
-                    <p>FW-SVR Zone <span class="update-label">ສາຂາພາກ</span></p>
-                </a>
-                <a href="https://10.0.253.101" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-ethernet"></i>
-                    <p>FW-DR-Site Zone <span class="update-label">DR</span></p>
-                </a>
-                <a href="https://10.0.253.107" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-ethernet"></i>
-                    <p>FW-CBM ZONE <span class="update-label">ທທກ</span></p>
-                </a>
-            </div>
-        </div>
-        <!-- Cyber Tools -->
-        <div class="group cyber-tools">
-            <h2 class="text-2xl font-semibold text-gray-700">ເຄື່ອງມື cyber-tools</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-                <a href="https://10.0.3.10/" target="_blank" class="icon-box">
-                    <i class="fa-brands fa-servicestack"></i>
-                    <p>Forti Analyzer <span class="update-label">ໃໝ່</span></p>
-                </a>
-                <a href="https://10.0.3.33/phoenix/login.html" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-fire"></i>
-                    <p>FortiSiem <span class="update-label">ໃໝ່</span></p>
-                </a>
-            </div>
-        </div>
-
-        <!-- Monitor Tools -->
-        <div class="group monitor">
-            <h2 class="text-2xl font-semibold text-gray-700">ເຄື່ອງມື Monitor</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-                <a href="https://10.0.50.5/nagios/" target="_blank" class="icon-box">
-                    <i class="fa-brands fa-watchman-monitoring"></i>
-                    <p>Nagi <span class="update-label">ໃໝ່</span></p>
-                </a>
-                <a href="https://10.0.253.109/session-login" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-user-secret"></i>
-                    <p>IPS <span class="update-label">ໃໝ່</span></p>
-                </a>
-                <a href="http://10.0.50.5:8200/index.php?page=login" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-feather"></i>
-                    <p>MGMT-IP <span class="update-label">ໃໝ່</span></p>
-                </a>
-                <a href="https://10.0.253.30:31943" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-microchip"></i>
-                    <p>Esight Huawei <span class="update-label">ໃໝ່</span></p>
-                </a>
-                <a href="http://10.0.3.13:8787/" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-ethernet"></i>
-                    <p>Solarwinds <span class="update-label">ໃໝ່</span></p>
-                </a>
-
-            </div>
-        </div>
-
-        <!-- Pentest Tools -->
-        <div class="group pentest">
-            <h2 class="text-2xl font-semibold text-gray-700">ເຄື່ອງມື Pentest</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-                <a href="http://10.0.50.5:8000/login/?next=/" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-vial"></i>
-                    <p>Pentest IOS & Android</p>
-                </a>
-                <a href="https://webhook.site/#!/view/9d3f3189-b4c7-4327-9c43-08f84bc5d770" target="_blank"
-                    class="icon-box">
-                    <i class="fa-solid fa-bath"></i>
-                    <p>webhook <span class="update-label">ໃໝ່</span></p>
-                </a>
-                <a href="https://owasp.org/" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-tooth"></i>
-                    <p>Open wrap <span class="update-label">ໃໝ່</span></p>
-                </a>
-                <a href="https://jwt.io/" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-i-cursor"></i>
-                    <p>JWT <span class="update-label">ໃໝ່</span></p>
-                </a>
-                <a href="#" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-dharmachakra"></i>
-                    <p>nexus <span class="update-label">ລໍຖ້າເປີດນຳໃຊ້</span></p>
-                </a>
-                <a href="#" target="_blank" class="icon-box">
-                    <i class="fa-brands fa-wolf-pack-battalion"></i>
-                    <p>mitmpro <span class="update-label">ລໍຖ້າເປີດນຳໃຊ້</span></p>
-                </a>
-                <a href="#" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-list-check"></i>
-                    <p>Burpsuite <span class="update-label">ລໍຖ້າເປີດນຳໃຊ້</span></p>
-                </a>
-            </div>
-        </div>
-
-        <!-- Docker Tools -->
-        <div class="group docker">
-            <h2 class="text-2xl font-semibold text-gray-700">ເຄື່ອງມື Docker</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-                <a href="http://10.0.50.5:9000/#!/auth" target="_blank" class="icon-box">
-                    <i class="fa-brands fa-docker"></i>
-                    <p>ຄວບຄຸມ Docker</p>
-                </a>
-                <a href="#" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-list-check"></i>
-                    <p># <span class="update-label">ລໍຖ້າເປີດນຳໃຊ້</span></p>
-                </a>
-
-            </div>
-        </div>
-
-        <!-- Cloud -->
-        <div class="group cloud">
-            <h2 class="text-2xl font-semibold text-gray-700">Cloud BOL</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-                <a href="https://10.0.50.5:7070/login" target="_blank" class="icon-box">
-                    <i class="fa-solid fa-cloud"></i>
-                    <p>Cloud BOL <span class="update-label">ໃໝ່</span></p>
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-    <!-- JavaScript -->
-    <script>
-        function searchCategory() {
-            var selectedCategory = document.getElementById("categorySelect").value;
-            var groups = document.querySelectorAll(".group");
-
-            groups.forEach(group => {
-                if (selectedCategory === "all" || group.classList.contains(selectedCategory)) {
-                    group.style.display = "block";
-                } else {
-                    group.style.display = "none";
-                }
-            });
-        }
-    </script>
-
-
-
-    <!-- CSS -->
-    <style>
-        .icon-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            color: black;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .icon-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .icon-box i {
-            font-size: 40px;
-            color: #2563EB;
-            margin-bottom: 10px;
-        }
-
-        .icon-box p {
-            font-size: 1rem;
-            font-weight: 300;
-        }
-    </style>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-6 mt-10">
-        <p>&copy; 2024 ພະແນກຄຸ້ມຄອງພື້ນຖານໂຄງລ່າງລະບົບເຕັກໂນໂລຊີ</p>
-        <p>👀 ຜູ້ເຂົ້າເບິ່ງທັງໝົດ: <span id="visitor-count">0</span></p>
-    </footer>
-
-    <script>
-        // Function ນັບຜູ້ເຂົ້າເບິ່ງໜ້າ
-        function updateVisitorCount() {
-            let count = localStorage.getItem("visitorCount") || 0;
-            count = parseInt(count) + 1;
-            localStorage.setItem("visitorCount", count);
-            document.getElementById("visitor-count").innerText = count;
-        }
-
-        // ເອີ້ນ Function ທຸກຄັ້ງທີ່ເປີດເວັບ
-        updateVisitorCount();
-    </script>
-
 </body>
-
 </html>
