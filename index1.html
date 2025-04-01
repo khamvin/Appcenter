@@ -90,6 +90,8 @@
             <option value="monitor">ລະບົບ Monitor</option>
             <option value="cloud">Private Cloud BOL</option>
             <option value="docker">ລະບົບ Docker</option>
+            <option value="netowrkbol">ລະບົບ Network BOL</option>
+            <option value="report">ລາຍງານ</option>
         </select>
         <button onclick="searchCategory()"
             class="ml-3 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700">
@@ -106,19 +108,57 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
                 <a href="https://10.0.253.105" target="_blank" class="icon-box">
                     <i class="fa-solid fa-ethernet"></i>
-                    <p>FW-NET ZONE <span class="update-label">HQ</span></p>
+                    <p>FW-NET ZONE <span class="update-label">Internet</span></p>
                 </a>
                 <a href="https://10.0.253.103" target="_blank" class="icon-box">
                     <i class="fa-solid fa-ethernet"></i>
-                    <p>FW-SVR Zone <span class="update-label">ສາຂາພາກ</span></p>
+                    <p>FW-DNB Zone <span class="update-label">ກົມ-ສາຂາພາກ</span></p>
                 </a>
                 <a href="https://10.0.253.101" target="_blank" class="icon-box">
                     <i class="fa-solid fa-ethernet"></i>
-                    <p>FW-DR-Site Zone <span class="update-label">DR</span></p>
+                    <p>FW-DC-Server-Site Zone <span class="update-label">Core Network</span></p>
                 </a>
                 <a href="https://10.0.253.107" target="_blank" class="icon-box">
                     <i class="fa-solid fa-ethernet"></i>
                     <p>FW-CBM ZONE <span class="update-label">ທທກ</span></p>
+                </a>
+                <a href="https://10.0.253.207" target="_blank" class="icon-box">
+                    <i class="fa-solid fa-ethernet"></i>
+                    <p>DR-FW-SVR Zone <span class="update-label">Core Network (DR)</span></p>
+                </a>
+                <a href="https://10.0.253.208" target="_blank" class="icon-box">
+                    <i class="fa-solid fa-ethernet"></i>
+                    <p>DR-FW-DNB & CMB <span class="update-label">ທທກ-ສາຂາພາກ(DR)</span></p>
+                </a>
+            </div>
+        </div>
+        <!--Network BOL-->
+            <div class="group netowrkbol">
+            <h2 class="text-2xl font-semibold text-gray-700">Network BOL</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                <a href="https://10.0.253.105" target="_blank" class="icon-box">
+                    <i class="fa-solid fa-ethernet"></i>
+                    <p>FW-NET ZONE <span class="update-label">Internet</span></p>
+                </a>
+                <a href="https://10.0.253.103" target="_blank" class="icon-box">
+                    <i class="fa-solid fa-ethernet"></i>
+                    <p>FW-DNB Zone <span class="update-label">ກົມ-ສາຂາພາກ</span></p>
+                </a>
+                <a href="https://10.0.253.101" target="_blank" class="icon-box">
+                    <i class="fa-solid fa-ethernet"></i>
+                    <p>FW-DC-Server-Site Zone <span class="update-label">Core Network</span></p>
+                </a>
+                <a href="https://10.0.253.107" target="_blank" class="icon-box">
+                    <i class="fa-solid fa-ethernet"></i>
+                    <p>FW-CBM ZONE <span class="update-label">ທທກ</span></p>
+                </a>
+                <a href="https://10.0.253.207" target="_blank" class="icon-box">
+                    <i class="fa-solid fa-ethernet"></i>
+                    <p>DR-FW-SVR Zone <span class="update-label">Core Network (DR)</span></p>
+                </a>
+                <a href="https://10.0.253.208" target="_blank" class="icon-box">
+                    <i class="fa-solid fa-ethernet"></i>
+                    <p>DR-FW-DNB & CMB <span class="update-label">ທທກ-ສາຂາພາກ(DR)</span></p>
                 </a>
             </div>
         </div>
@@ -224,6 +264,18 @@
                 <a href="https://10.0.50.5:7070/login" target="_blank" class="icon-box">
                     <i class="fa-solid fa-cloud"></i>
                     <p>Cloud BOL <span class="update-label">ໃໝ່</span></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Report -->
+         <!-- Firewall Group -->
+        <div class="group report">
+            <h2 class="text-2xl font-semibold text-gray-700">Report</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                <a href="https://bit.ly/4jfu32U" target="_blank" class="icon-box">
+                    <i class="fa-solid fa-bug"></i>
+                    <p>Cyber Report <span class="update-label">New</span></p>
                 </a>
             </div>
         </div>
